@@ -1,0 +1,12 @@
+functions to implement : 
+
+
+- variadic cat 
+
+- variadic dup 
+
+- split function 
+
+- more powerfull strtok()
+
+- rewrite basic stuff like strlen() strchr() strcmp() ,...
