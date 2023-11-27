@@ -1,4 +1,4 @@
-#include "ussr_string.h"
+#include "ussr_basic.h"
 #include "ussr_common.h"
 #include "ussr_misc.h"
 
@@ -109,7 +109,14 @@ err_flag append_ussr_string(S_USSR_STRING * ussr_str, uint8_t elem){
 }//not tested; prolly ok 
 
 err_flag fprint_ussr_str(FILE * f, S_USSR_STRING * ussr_string){
-    
+    /*
+    Basic non variadic print function; 
+    takes 
+    f -> flux pointer , not null 
+    ussr_string -> usstring pointer, not null, initialized
+
+    tries as much as possible to return warning and not errors
+    */
     if(!f){
        fprintf(stderr, "warning at : fprint_ussr_str, file pointer is NULL\nprinting to sdtout\n");
     }
@@ -147,5 +154,5 @@ err_flag fprint_ussr_str(FILE * f, S_USSR_STRING * ussr_string){
         fprintf(f , "%s\n",buff);
     }
     return STR_OK;
-}//messy as fuck
+}//messy as fuck; tested; seems ok
 

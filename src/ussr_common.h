@@ -23,10 +23,13 @@ enum{
     ERR_NULL, ERR_ALLOC, ERR_REALLOC, ERR_VALS, WA_NOTNULL, ERR_TYPE,
     ARR_NULL, ARR_ALLOC, ARR_REALLOC, ARR_VALS, ARR_NOTNULL, ARR_APP,
     STR_NULL, STR_ALLOC, STR_REALLOC, STR_VALS, STR_NOTNULL, STR_APP,
+    CAT_NULL, CAT_ALLOC, CAT_REALLOC, CAT_VALS, CAT_NOTNULL, CAT_APP,
 };
 
 #define ARR_OK FG_OK //array
-#define STR_OK FG_OK
+#define STR_OK FG_OK //string 
+#define CAT_OK FG_OK //concatenate functions 
+
 
 
 typedef enum ussr_types{

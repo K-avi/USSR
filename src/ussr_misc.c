@@ -7,12 +7,12 @@ static inline char * str_flag(err_flag flag)
 
   switch (flag) 
   {
-
     case ERR_NULL: return "null pointer passed";
     case ERR_ALLOC: return "couldn't allocate memory";
     case ERR_REALLOC: return "couldn't reallocate memory";
     case ERR_VALS: return "value given not matching expected values";
     case WA_NOTNULL: return "pointer is not null"; 
+   
     case ARR_NULL: return "null pointer passed as array struct pointer";
     case ARR_ALLOC: return "couldn't allocate memory to array elements";
     case ARR_REALLOC: return "couldn't reallocate arrays elements"; 
@@ -20,6 +20,20 @@ static inline char * str_flag(err_flag flag)
     case ARR_NOTNULL: return "array elements is not null"; 
     case ERR_TYPE : return "type passed is not valid"; 
     case ARR_APP : return "value couldn't be appened to the array";
+
+    case STR_NULL : return "null pointer passed as USSR_STR struct pointer";
+    case STR_ALLOC: return "couldn't allocate memory to S_USSR_ARRAY->elements";
+    case STR_REALLOC: return "couldn't reallocate STR arrays elements"; 
+    case STR_VALS: return "value given not matching expected values in string_basic function"; 
+    case STR_NOTNULL: return "STRay elements is not null"; 
+    case STR_APP : return "value couldn't be appened to the array";
+
+    case CAT_NULL : return "null pointer passed in ussr_cat function";
+    case CAT_ALLOC: return "couldn't allocate memory to S_USSR_ARRAY->elements in ussr_cat function";
+    case CAT_REALLOC: return "couldn't reallocate memory to S_USSR_ARRAY->elements in ussr_car function"; 
+    case CAT_VALS: return "value given not matching expected values in str_cat function"; 
+    case CAT_NOTNULL: return "str->elements is not null in cat function"; 
+    case CAT_APP : return "value couldn't be appened to the string in cat function";
 
     default : return "unknown error ; how did you get here?";
   }

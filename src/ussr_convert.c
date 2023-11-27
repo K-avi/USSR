@@ -1,7 +1,6 @@
 #include "ussr_convert.h"
 #include "ussr_common.h"
 #include "ussr_misc.h"
-#include "ussr_string.h"
 
 err_flag ussr_str_to_c_str(const S_USSR_STRING * ussr_str, char ** c_str){
     /*
