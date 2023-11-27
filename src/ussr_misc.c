@@ -30,10 +30,24 @@ static inline char * str_flag(err_flag flag)
 
     case CAT_NULL : return "null pointer passed in ussr_cat function";
     case CAT_ALLOC: return "couldn't allocate memory to S_USSR_ARRAY->elements in ussr_cat function";
-    case CAT_REALLOC: return "couldn't reallocate memory to S_USSR_ARRAY->elements in ussr_car function"; 
+    case CAT_REALLOC: return "couldn't reallocate memory to S_USSR_ARRAY->elements in ussr_cat function"; 
     case CAT_VALS: return "value given not matching expected values in str_cat function"; 
     case CAT_NOTNULL: return "str->elements is not null in cat function"; 
     case CAT_APP : return "value couldn't be appened to the string in cat function";
+
+    case DUP_NULL : return "null pointer passed in ussr_dup function";
+    case DUP_ALLOC: return "couldn't allocate memory to S_USSR_ARRAY->elements in ussr_dup function";
+    case DUP_REALLOC: return "couldn't reallocate memory to S_USSR_ARRAY->elements in ussr_dup function"; 
+    case DUP_VALS: return "value given not matching expected values in str_dup function"; 
+    case DUP_NOTNULL: return "str->elements is not null in dup function"; 
+    case DUP_APP : return "value couldn't be appened to the string in dup function";
+
+    case PR_NULL : return "null pointer passed in ussr_print_var function";
+    case PR_ALLOC: return "placeholder error";
+    case PR_REALLOC: return "placeholder error"; 
+    case PR_VALS: return "value given not matching expected values in ussr_print_var function"; 
+    case PR_NOTNULL: return "placeholder error"; 
+    case PR_APP : return "placeholder error";
 
     default : return "unknown error ; how did you get here?";
   }
@@ -55,7 +69,6 @@ static inline void ussr_report( FILE * flux, const char * repport_msg, const cha
         fprintf(stderr,"ussr_report : NULL was passed for error_msg\n");
         return; 
     }
-
     fprintf(flux," %s : %s at %s\n",repport_msg, str_flag(flag), error_msg);
 }
 

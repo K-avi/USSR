@@ -1,8 +1,5 @@
 functions to implement : 
 
-
-- variadic cat 
-
 - variadic dup (fym variadic dup?)
 
 - split function 
@@ -11,4 +8,14 @@ functions to implement :
 
 - rewrite basic stuff like strlen() strchr() strcmp() ,...
 
+- support wide char (FUCK)
+
+- checkout rust string library 
+
 - variadic print 
+
+
+once done : 
+
+use restrict ;
+debug portability 

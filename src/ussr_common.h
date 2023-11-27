@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistdio.h>
 #include <stdint.h>
 #include <stddef.h>
 #include <unistd.h>
@@ -24,12 +23,15 @@ enum{
     ARR_NULL, ARR_ALLOC, ARR_REALLOC, ARR_VALS, ARR_NOTNULL, ARR_APP,
     STR_NULL, STR_ALLOC, STR_REALLOC, STR_VALS, STR_NOTNULL, STR_APP,
     CAT_NULL, CAT_ALLOC, CAT_REALLOC, CAT_VALS, CAT_NOTNULL, CAT_APP,
+    DUP_NULL, DUP_ALLOC, DUP_REALLOC, DUP_VALS, DUP_NOTNULL, DUP_APP,
+    PR_NULL, PR_ALLOC, PR_REALLOC, PR_VALS, PR_NOTNULL, PR_APP,
+
 };
 
 #define ARR_OK FG_OK //array
 #define STR_OK FG_OK //string 
 #define CAT_OK FG_OK //concatenate functions 
-
+#define PR_OK FG_OK //print 
 
 
 typedef enum ussr_types{

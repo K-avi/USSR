@@ -25,11 +25,13 @@ static err_flag helper_cat(S_USSR_STRING * dest , const S_USSR_STRING * src){
     dest->cur_in += src->cur_in;
 
     return CAT_OK;
-}//not tested; maybe wrong ; 
+}//tested; seems ok ; 
 
 
 err_flag ussr_cat(uint32_t nba, S_USSR_STRING * dest, ...){
     /*
+    nba  -> argument count 
+    dest -> ussr_string pointer; initialized; not null
     */
     if(!dest){
         ussr_report_err("ussr_cat dest", CAT_NULL); 
@@ -39,10 +41,11 @@ err_flag ussr_cat(uint32_t nba, S_USSR_STRING * dest, ...){
         ussr_report_warning("ussr_cat", CAT_VALS); 
         return CAT_OK;
     }
-    uint64_t total_size = dest->cur_in ; 
+   
     va_list parameters; 
     va_start(parameters, dest);
 
+    uint64_t total_size = dest->cur_in ; 
     S_USSR_STRING * refs[nba];
 
     for(uint32_t i = 0 ; i < nba ; i++){
@@ -62,7 +65,7 @@ err_flag ussr_cat(uint32_t nba, S_USSR_STRING * dest, ...){
 
     dest->elems = realloc(dest->elems, (total_size * 1.1) * sizeof(uint8_t));  
     dest->max = total_size * 1.1;
-    
+
     if(!dest->elems){
         ussr_report_err("ussr_cat", CAT_REALLOC);
         return CAT_REALLOC;
@@ -76,4 +79,4 @@ err_flag ussr_cat(uint32_t nba, S_USSR_STRING * dest, ...){
         }
     }
     return CAT_OK;
-}//not tested; prolly wrong 
+}//tested; seems ok  
