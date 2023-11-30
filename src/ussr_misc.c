@@ -49,6 +49,13 @@ static inline char * str_flag(err_flag flag)
     case PR_NOTNULL: return "placeholder error"; 
     case PR_APP : return "placeholder error";
 
+    case TAB_NULL : return "null pointer passed as S_USSTRTAB";
+    case TAB_ALLOC: return "couldn't allocate memory to S_USSRTAB->elements in ussr_dup function";
+    case TAB_REALLOC: return "couldn't reallocate memory to S_USSRTAB->elements in ussr_dup function"; 
+    case TAB_VALS: return "value given not matching expected values as tab function"; 
+    case TAB_NOTNULL: return "tab->elements is not null"; 
+    case TAB_APP : return "value couldn't be appened to the usstrtab";
+
     default : return "unknown error ; how did you get here?";
   }
 }//ok
@@ -72,14 +79,12 @@ static inline void ussr_report( FILE * flux, const char * repport_msg, const cha
     fprintf(flux," %s : %s at %s\n",repport_msg, str_flag(flag), error_msg);
 }
 
-void ussr_report_err( const char * msg , err_flag flag)
-{ 
+void ussr_report_err( const char * msg , err_flag flag){ 
   //could be a macro 
   ussr_report(stdout, "error", msg, flag);
 }
 
-void ussr_report_warning(const char * msg , err_flag flag)
-{ 
+void ussr_report_warning(const char * msg , err_flag flag){ 
   //could be a macro 
   ussr_report(stdout, "error", msg, flag);
 }

@@ -1,21 +1,102 @@
 functions to implement : 
 
-- variadic dup (fym variadic dup?)
-
-- split function 
+- powerfull split function 
 
 - more powerfull strtok()
 
-- rewrite basic stuff like strlen() strchr() strcmp() ,...
+- checkout rust string library and implement 
+  some of it's features
 
-- support wide char (FUCK)
+- strchr variant to get all occurences of a character 
 
-- checkout rust string library 
+- strchr variant to change all occurences of a character 
 
-- variadic print 
+- the format part of the string function to turn stuff into string :D 
+
+- a heapsort function bc I think heaps are cool as fuck 
+
+- that one "O(n) when there aint a lot of different stuff in the string" 
+sort function 
 
 
-once done : 
+list of string.h functions to redefine : 
 
-use restrict ;
-debug portability 
+strcat -> done 
+
+strchr -> done 
+
+strcmp -> done 
+
+strcoll -> has to support wchar or smtg 
+
+strcpy -> kinda covered in dup ngl
+
+strcspn -> 
+
+strdup -> done 
+
+strfry -> 
+
+strlen -> done 
+
+strncat -> irrelevant
+
+strncmp -> somewhat irrelelevant ?
+
+strncpy -> irrelelevant 
+
+strpbrk -> 
+
+strrchr -> 
+
+strsep ->
+
+strspn -> 
+
+strstr -> not done 
+ 
+strtok -> not done 
+
+strxfrm -> not done 
+
+strstr -> not done 
+
+I'm not gonna mess w the memset, memcopy,... family of 
+functions . 
+
+
+some stdio.h functions to redefine : 
+
+sprintf 
+snprintf 
+
+build.sh : 
+
+
+
+general todo list 
+
+docs : 
+not done 
+
+portability : 
+not verified 
+
+debug: 
+more debug needed ngl
+
+
+support wide char : 
+idk maybe in a release or smtg ? 
+
+I'd like to make the library real portable at some point 
+I'm not sure how much yet I'll think abt it when I'll 
+do it lol
+ 
+
+making repo cleaner : 
+
+gpl message everywhere 
+docs 
+using fancy restrict things maybe ? 
+fancier makefile and source structures 

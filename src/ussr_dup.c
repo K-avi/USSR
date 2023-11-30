@@ -29,8 +29,6 @@ static err_flag helper_dup(S_USSR_STRING * dest , const S_USSR_STRING * src){
     return CAT_OK;
 }//tested; seems ok ; 
 
-
-
 err_flag ussr_dup(uint32_t nba, S_USSR_STRING * dest, ...){
     /*
     nba -> number of argument 

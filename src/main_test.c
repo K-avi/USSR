@@ -5,6 +5,7 @@
 #include "ussr_basic.h"
 #include "ussr_convert.h"
 #include "ussr_print.h"
+#include <wchar.h>
 
 int main(int argc, char ** argv){
 
@@ -48,6 +49,7 @@ int main(int argc, char ** argv){
 	free_ussr_string(&u_test2);
 	free_ussr_string(&u_test3);
 	free_ussr_string(&u_dup_test);
+
 
 	return 0 ; 
 }

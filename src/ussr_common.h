@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stddef.h>
-#include <unistd.h>
-#include <stddef.h>
+#include <unistd.h> //fuck windows 
 #include <string.h>
 
 /*boolean macros*/
@@ -25,20 +24,17 @@ enum{
     CAT_NULL, CAT_ALLOC, CAT_REALLOC, CAT_VALS, CAT_NOTNULL, CAT_APP,
     DUP_NULL, DUP_ALLOC, DUP_REALLOC, DUP_VALS, DUP_NOTNULL, DUP_APP,
     PR_NULL, PR_ALLOC, PR_REALLOC, PR_VALS, PR_NOTNULL, PR_APP,
-
+    TAB_NULL, TAB_ALLOC, TAB_REALLOC, TAB_VALS, TAB_NOTNULL, TAB_APP,
 };
 
 #define ARR_OK FG_OK //array
 #define STR_OK FG_OK //string 
 #define CAT_OK FG_OK //concatenate functions 
 #define PR_OK FG_OK //print 
-
-
-typedef enum ussr_types{
-    ur_null=0, ur_char, ur_str, ur_int64, ur_uint64, ur_float, ur_double, ur_array,
-}ussr_type;
+#define TAB_OK FG_OK //str tab thing 
 
 extern uint8_t realloc_str_coeff;
+extern uint8_t realloc_strtab_coeff;
 
 
 #endif 

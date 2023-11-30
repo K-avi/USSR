@@ -10,6 +10,7 @@ typedef struct s_ussr_string{
 
     uint8_t * elems; 
 }S_USSR_STRING ;
+typedef S_USSR_STRING  S_USSTR; //shorter name 
 
 extern err_flag init_ussr_string(S_USSR_STRING * ussr_str , uint32_t size);
 extern err_flag free_ussr_string(S_USSR_STRING * ussr_str);
