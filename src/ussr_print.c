@@ -55,8 +55,6 @@ err_flag fprint_ussr_str(FILE * f, S_USSR_STRING * ussr_string){
     return STR_OK;
 }//messy as fuck; tested; seems ok
 
-
-
 err_flag ussr_variadic_fprint(FILE * f, uint32_t nba , ...){
     /*
     */
@@ -82,4 +80,4 @@ err_flag ussr_variadic_fprint(FILE * f, uint32_t nba , ...){
         }
     }
     return PR_OK;
-}
+}//tested ; maybe do only one print idk 

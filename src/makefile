@@ -13,7 +13,7 @@ TARGET_LIB := ../ussr_lib.so  # target lib
 DBG_LIB := ../ussr_dbg.so
 TEST := ../test
 
-SRCS := ussr_common.c ussr_convert.c ussr_misc.c ussr_basic.c ussr_cat.c ussr_print.c ussr_dup.c
+SRCS := ussr_common.c ussr_convert.c ussr_misc.c ussr_basic.c ussr_cat.c ussr_print.c ussr_dup.c ussr_redef.c ussr_strtab.c ussr_split.c
 OBJS = $(SRCS:.c=.o)
 
 .PHONY: all

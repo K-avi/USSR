@@ -30,7 +30,7 @@ err_flag init_ussr_string(S_USSR_STRING * ussr_str , uint32_t size){
     ussr_str->max = size; 
 
     return STR_OK;
-}//not tested ; prolly ok 
+}//tested ; ok 
 
 
 err_flag free_ussr_string(S_USSR_STRING * ussr_str){
@@ -53,7 +53,7 @@ err_flag free_ussr_string(S_USSR_STRING * ussr_str){
     ussr_str->max = 0 ; 
     
     return STR_OK;
-}//not tested; probably ok
+}//tested; ok
 
 static err_flag realloc_ussr_string(S_USSR_STRING * ussr_str, uint32_t realloc_coeff){
     /*
@@ -64,7 +64,6 @@ static err_flag realloc_ussr_string(S_USSR_STRING * ussr_str, uint32_t realloc_c
         ussr_report_err("realloc_ussr_string", STR_NULL);
         return STR_NULL;
     }
-
     if(realloc_coeff == 0 ){//free case 
         if(ussr_str->elems)free(ussr_str->elems); 
         ussr_str->elems = NULL;
@@ -81,7 +80,7 @@ static err_flag realloc_ussr_string(S_USSR_STRING * ussr_str, uint32_t realloc_c
     ussr_str->max *= realloc_coeff;
 
     return STR_OK;
-}//not tested; prolly ok ngl 
+}//tested; ok 
 
 err_flag append_ussr_string(S_USSR_STRING * ussr_str, uint8_t elem){
     /*
@@ -106,4 +105,4 @@ err_flag append_ussr_string(S_USSR_STRING * ussr_str, uint8_t elem){
 
     ussr_str->elems[ussr_str->cur_in++] = elem ;
     return STR_OK;
-}//not tested; prolly ok 
+}//tested; ok 

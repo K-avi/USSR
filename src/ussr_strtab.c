@@ -3,12 +3,14 @@
 #include "ussr_common.h"
 #include "ussr_dup.h"
 #include "ussr_misc.h"
+#include "ussr_print.h"
+
 
 err_flag init_usstrtab(S_USSTRTAB * tab, uint32_t elems){
     /*
     tab -> not null ; not initialized
+    elems -> nonzero
     */
-
     if(!tab){
         ussr_report_err("init_usstrtab", TAB_NULL);
         return TAB_NULL;
@@ -16,7 +18,7 @@ err_flag init_usstrtab(S_USSTRTAB * tab, uint32_t elems){
     if(tab->elems){
         ussr_report_warning("init_usstrtab", TAB_NOTNULL);
     }
-    if(elems){
+    if(!elems){
         ussr_report_warning("init_usstrtab", TAB_VALS); 
         return TAB_OK;
     }
@@ -26,8 +28,11 @@ err_flag init_usstrtab(S_USSTRTAB * tab, uint32_t elems){
         ussr_report_err("init_usstrtab", TAB_ALLOC); 
         return TAB_ALLOC;
     }
+    tab->max = elems; 
+    tab->cur_in = 0; 
+
     return TAB_OK;
-}//not tested ; don't know if I should init every str in tbh 
+}//tested ok; don't know if I should init every str in tbh 
 
 err_flag free_usstrtab(S_USSTRTAB *tab){
     /*
@@ -57,6 +62,7 @@ err_flag free_usstrtab(S_USSTRTAB *tab){
 
     return TAB_OK;  
 }//maybe redesign idk I might wanna pass ussr_strings references tbh 
+//tested; ok
 
 static err_flag realloc_usstrtab(S_USSTRTAB * tab){
     /*
@@ -71,7 +77,7 @@ static err_flag realloc_usstrtab(S_USSTRTAB * tab){
         return TAB_OK;
     }
 
-    tab->elems = realloc(tab->elems, tab->max * sizeof(S_USSTRTAB) * realloc_strtab_coeff);
+    tab->elems = realloc(tab->elems, tab->max * sizeof(S_USSR_STRING) * realloc_strtab_coeff);
     if(!tab->elems){
         ussr_report_err("realloc_usstrtab", TAB_REALLOC); 
         return TAB_REALLOC;
@@ -79,27 +85,28 @@ static err_flag realloc_usstrtab(S_USSTRTAB * tab){
     tab->max *= realloc_strtab_coeff;
 
     return TAB_OK;
-}//not tested
+}//tested; ok
 
-extern err_flag append_usstrtab(S_USSTRTAB * tab, S_USSR_STRING * usstr){
+extern err_flag append_usstrtab(S_USSTRTAB * tab, const S_USSR_STRING * usstr){
     /*
     tab -> not null ; initialized; 
-    u
+    usstr -> not null ; initialized
     */
+
     if(!tab){
-        ussr_report_err("append_usstrbtab", TAB_NULL); 
+        ussr_report_err("append_usstrbtab tab", TAB_NULL); 
         return TAB_NULL; 
     }
     if(!tab->elems){
-        ussr_report_err("append_usstrbtab", TAB_NULL); 
+        ussr_report_err("append_usstrbtab tab->elems", TAB_NULL); 
         return TAB_NULL; 
     }
     if(!usstr){
-        ussr_report_err("append_usstrbtab", STR_NULL); 
+        ussr_report_err("append_usstrbtab usstr", STR_NULL); 
         return STR_NULL; 
     }
     if(!usstr->elems){
-        ussr_report_warning("append_usstrbtab elems", STR_NULL); 
+        ussr_report_warning("append_usstrbtab usstr.elems", STR_NULL); 
     }
 
     if(tab->cur_in == tab->max){
@@ -115,13 +122,34 @@ extern err_flag append_usstrtab(S_USSTRTAB * tab, S_USSR_STRING * usstr){
         ussr_report_err("append_ussrtab", failure); 
         return failure;
     }
-
     tab->cur_in++;
     return TAB_OK;
-}//not tested; likely wrong
+}//tested; seems o k
 
 extern err_flag fprint_usstrtab(FILE * flux, const S_USSTRTAB * tab){
     /*
+    flux -> not null (optionnal)
+    tab -> not null (optionnal)
     */
-}
+    if(!flux){
+        ussr_report_warning("fprint_usstrtab", ERR_NULL);
+        flux = stderr; 
+    }
+    if(!tab){
+        ussr_report_warning("fprint_usstrtab", TAB_NULL); 
+        return TAB_OK;
+    }
+    if(!tab->elems){
+        ussr_report_warning("fprint_usstrtab", TAB_NULL);
+        return TAB_OK;
+    }
+
+    //ussr_variadic_fprint(flux, tab->cur_in, tab->elems);
+    for(uint32_t i = 0 ; i < tab->cur_in ; i++){
+       err_flag failure = fprint_ussr_str(flux, &tab->elems[i]);
+       if(failure){ ussr_report_warning("fprint_usstrtab", failure); }
+    }
+
+    return TAB_OK;
+}// tested; ok
 

@@ -1,7 +1,7 @@
 USSR stands for Ultime String System Replacement (the acronym 
 doesn't mean much it's more of a joke than anything). 
 
-C strings suck so I want to a library for a "higher level" 
+C strings are weird so I want to a library for a "higher level" 
 string system with more advanced functions. 
 I'm doing this for fun on my spare time so I don't really 
 care for the "normal" C library philosophy of not allocating 

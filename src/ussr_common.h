@@ -9,8 +9,8 @@
 #include <string.h>
 
 /*boolean macros*/
-#define false (uint8_t)1 
-#define true (uint8_t)0 
+#define false (uint8_t)0
+#define true (uint8_t)1
 #define FALSE false 
 #define TRUE true 
 

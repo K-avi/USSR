@@ -1,6 +1,6 @@
 functions to implement : 
 
-- powerfull split function 
+- some file read wrapper 
 
 - more powerfull strtok()
 
@@ -21,45 +21,52 @@ sort function
 
 list of string.h functions to redefine : 
 
+stpcpy -> wth
+sptncpy -> wth
+
 strcat -> done 
-
 strchr -> done 
-
 strcmp -> done 
 
-strcoll -> has to support wchar or smtg 
+strcoll -> has to support wchar or smtg I'll checkout the documentation
+strcoll_l -> // 
 
 strcpy -> kinda covered in dup ngl
 
-strcspn -> 
-
+strcspn -> done ; not tested 
 strdup -> done 
 
-strfry -> 
+strerror -> 
+strerror_l -> 
+strerror_r -> 
 
+strfry -> done 
 strlen -> done 
 
-strncat -> irrelevant
-
+strncat -> kinda irrelevant ?
 strncmp -> somewhat irrelelevant ?
 
-strncpy -> irrelelevant 
+strncpy -> idk
+strndup-> idk
+strnlen -> irrelevant 
 
-strpbrk -> 
+strpbrk -> done ; not tested
+strrchr -> done ; not tested 
 
-strrchr -> 
-
-strsep ->
+strsignal -> 
 
 strspn -> 
 
-strstr -> not done 
- 
-strtok -> not done 
+strstr->
 
-strxfrm -> not done 
+strtok -> 
+strtok_r ->
 
-strstr -> not done 
+strxfrm -> 
+strxfrm_l -> 
+
+strsep ->
+
 
 I'm not gonna mess w the memset, memcopy,... family of 
 functions . 
@@ -71,32 +78,28 @@ sprintf
 snprintf 
 
 build.sh : 
+not done 
 
 
-
-general todo list 
 
 docs : 
 not done 
 
 portability : 
-not verified 
+not tested I'll make a  test battery and run it on 
+Arch, Debian, Void and Gentoo 
+I don't care about windows / macOS compatibility
 
 debug: 
 more debug needed ngl
 
-
 support wide char : 
 idk maybe in a release or smtg ? 
-
-I'd like to make the library real portable at some point 
-I'm not sure how much yet I'll think abt it when I'll 
-do it lol
  
 
 making repo cleaner : 
 
-gpl message everywhere 
+gpl message everywhere once I'm done 
 docs 
-using fancy restrict things maybe ? 
+using fancy restrict/register things maybe ? 
 fancier makefile and source structures 

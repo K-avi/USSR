@@ -2,8 +2,6 @@
 #include "ussr_common.h"
 #include "ussr_misc.h"
 #include <stdarg.h>
-#include <stdint.h>
-
 
 static err_flag helper_dup(S_USSR_STRING * dest , const S_USSR_STRING * src){
     /*
@@ -84,5 +82,5 @@ err_flag ussr_dup(uint32_t nba, S_USSR_STRING * dest, ...){
         }
     }
     return STR_OK;
-}//not tested
+}//tested
 
