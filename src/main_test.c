@@ -8,14 +8,21 @@
 #include "ussr_redef.h"
 #include "ussr_strtab.h"
 #include "ussr_split.h"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 
 #include <time.h>
 int main(int argc, char ** argv){
+<<<<<<< HEAD
 
 	time_t t ;
 	time(&t);
 
 	srand(t);
+=======
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 	/*
 	S_USSR_STRING u_test; 
 	u_test.elems = NULL;
@@ -76,6 +83,7 @@ int main(int argc, char ** argv){
 	free_ussr_string(&u_test3);
 	free_ussr_string(&u_dup_test);
 	*/
+<<<<<<< HEAD
 	/*
 	S_USSR_STRING str1, str2; 
 	
@@ -83,6 +91,34 @@ int main(int argc, char ** argv){
 
 	c_str_to_ussr_str(&str1, "hayy: :::i'm:fine:3\n");
 	c_str_to_ussr_str(&str2, "hayy :3\n");
+=======
+
+	S_USSR_STRING str1, str2; 
+
+	c_str_to_ussr_str(&str1, "hayy: :::i'm:fine:3\n");
+	c_str_to_ussr_str(&str2, "hayy :3\n");
+
+	//ussr_variadic_fprint(stdout, 2, &str1, &str2);
+	//uint8_t val_strcmp; 
+	//ussr_strcmp(&str1, &str2, &val_strcmp);
+	//printf("strcmp first call : %u\n" , val_strcmp);
+
+	S_USSTRTAB tab; 
+
+	usssr_strsplit(&str1, &tab, ':');
+	
+	fprint_usstrtab(stdout, &tab);
+	free_usstrtab(&tab);
+	//S_USSR_STRING str3 ; 
+	//c_str_to_ussr_str(&str3, "hay:3\n");
+	//ussr_strcmp(&str1, &str3, &val_strcmp);
+
+	//printf("strcmp scd call : %u\n" , val_strcmp);
+
+	free_ussr_string(&str1);
+	free_ussr_string(&str2);
+	//free_ussr_string(&str3);
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 
 	ussr_variadic_fprint(stdout, 2, &str1, &str2);
 	//uint8_t val_strcmp; 

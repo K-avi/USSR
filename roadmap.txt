@@ -1,5 +1,10 @@
 functions to implement : 
 
+<<<<<<< HEAD
+=======
+- some file read wrapper 
+
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 - more powerfull strtok()
 
 - checkout rust string library and implement 
@@ -32,10 +37,17 @@ strcoll_l -> //
 
 strcpy -> kinda covered in dup ngl
 
+<<<<<<< HEAD
 strcspn -> done  
 strdup -> done 
 
 strerror -> no?
+=======
+strcspn -> done ; not tested 
+strdup -> done 
+
+strerror -> 
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 strerror_l -> 
 strerror_r -> 
 
@@ -49,12 +61,19 @@ strncpy -> idk
 strndup-> idk
 strnlen -> irrelevant 
 
+<<<<<<< HEAD
 strpbrk -> done 
 strrchr -> done 
 
 strsignal -> 
 
 strspn -> done ; not tested 
+=======
+strpbrk -> done ; not tested
+strrchr -> done ; not tested 
+
+strsignal -> 
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 
 strstr-> done ; not tested 
 
@@ -64,7 +83,19 @@ strtok_r ->
 strxfrm -> locale stuff is weird to me 
 strxfrm_l -> 
 
+<<<<<<< HEAD
 
+=======
+strstr->
+
+strtok -> 
+strtok_r ->
+
+strxfrm -> 
+strxfrm_l -> 
+
+strsep ->
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 
 
 I'm not gonna mess w the memset, memcopy,... family of 
@@ -79,6 +110,11 @@ snprintf
 build.sh : 
 not done 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 docs : 
 not done 
 
@@ -96,6 +132,12 @@ idk maybe in a release or smtg ?
 
 making repo cleaner : 
 
+<<<<<<< HEAD
 gpl message everywhere once I'm done ; k&r style declarations maybe ? 
 docs 
+=======
+gpl message everywhere once I'm done 
+docs 
+using fancy restrict/register things maybe ? 
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 fancier makefile and source structures 

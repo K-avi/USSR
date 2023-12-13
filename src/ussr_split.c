@@ -7,10 +7,15 @@
 
 err_flag usssr_strsplit(S_USSR_STRING * usstr, S_USSTRTAB * usstrtab , uint8_t chr){
     /*
+<<<<<<< HEAD
     usstr -> not null & initialized 
     usstrtab -> not null &  (not initialized) | (initialized & empty)
 
     splits the usstr with the chr separator
+=======
+    usstr -> not null; initialized 
+    usstrtab -> not null;  (not initialized) | (initialized & empty)
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
     */
     if(!usstr){
         ussr_report_err("usstr_strsplit usstr", STR_NULL); 
@@ -28,6 +33,10 @@ err_flag usssr_strsplit(S_USSR_STRING * usstr, S_USSTRTAB * usstrtab , uint8_t c
         ussr_report_err("usstr_strsplit", TAB_VALS); 
         return TAB_VALS;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
     if(!usstrtab->elems){
         err_flag failure = init_usstrtab(usstrtab, 10);
         if(failure){
@@ -45,8 +54,13 @@ err_flag usssr_strsplit(S_USSR_STRING * usstr, S_USSTRTAB * usstrtab , uint8_t c
         if(usstr->elems[i] == chr ){
             if(buff_size!=0){
                 buff[buff_size] = '\0';
+<<<<<<< HEAD
                 //turns tmp_string into actual string
                 tmp_usstr.elems = NULL ; 
+=======
+                printf("buff : %s i=%u\n",buff,i);
+                //turns tmp_string into actual string
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
                 err_flag failure = c_str_to_ussr_str(&tmp_usstr, buff);
                 if(failure){free(buff);ussr_report_err("usstr_strsplit" , failure); return failure;}
 
@@ -82,6 +96,7 @@ err_flag usssr_strsplit(S_USSR_STRING * usstr, S_USSTRTAB * usstrtab , uint8_t c
     free(buff);
     return STR_OK; 
 }//tested; seems ok; maybe rewrite with the memcpy thing 
+<<<<<<< HEAD
 
 
 err_flag usssr_strscut(S_USSR_STRING * usstr, S_USSTRTAB * usstrtab , const uint8_t * delimiters){
@@ -188,3 +203,5 @@ err_flag usssr_strscut(S_USSR_STRING * usstr, S_USSTRTAB * usstrtab , const uint
     free(buff);
     return STR_OK; 
 }//not tested ; prolly wrong 
+=======
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc

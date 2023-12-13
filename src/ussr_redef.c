@@ -22,6 +22,42 @@ err_flag ussr_strlen(const S_USSR_STRING * ustr, uint32_t * ret){
     return STR_OK; 
 }//tested ; seems ok 
 
+<<<<<<< HEAD
+=======
+err_flag ussr_strchr(const S_USSR_STRING * usstr, uint8_t ch , uint8_t ** ret ){
+    /*
+    strchr equivalent
+
+    usstr -> not null; initialized 
+    ch -> 
+    ret -> not null
+    */
+    if(!usstr){
+        ussr_report_err("ussr_strchr usstr", STR_NULL); 
+        return STR_NULL;
+    }
+    if(!usstr->elems){
+        ussr_report_err("ussr_strchr usstr->elems", STR_NULL); 
+        return STR_NULL;
+    }
+    if(!ret){
+        ussr_report_err("ussr_strchr ret", STR_NULL);
+        return STR_NULL;
+    }
+
+    uint8_t * tmp = usstr->elems;
+    while(tmp < &usstr->elems[usstr->cur_in]){
+    //fancy while loop :O
+        if(*tmp == ch){
+            *ret = tmp;
+            return STR_OK; 
+        }
+        tmp ++ ;
+    }
+    *ret = NULL; 
+    return STR_OK;
+}//tested; ok
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 
 err_flag ussr_strcmp(S_USSR_STRING * usstr1 , S_USSR_STRING * usstr2, uint8_t * ret){
     /*
@@ -71,9 +107,12 @@ err_flag ussr_strcspn(const S_USSR_STRING * usstr,  char * rejectedCharacters, s
     /*
     usstr -> not null, initialized 
     rejectedCharacters -> can be null ; recommended to pass string litteral 
+<<<<<<< HEAD
 
     returns the size of the longest substring of usstr not containing 
     any rejected char 
+=======
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
     */
     if(!ret){
         ussr_report_err("ussr_strcspn", ERR_NULL);
@@ -104,15 +143,22 @@ err_flag ussr_strcspn(const S_USSR_STRING * usstr,  char * rejectedCharacters, s
 
     *ret = usstr->cur_in;
     return STR_OK; 
+<<<<<<< HEAD
 }//tested ; ok
+=======
+}//not tested ; maybe wrong 
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 
 
 err_flag ussr_strfry(S_USSR_STRING * usstr){
     /*
     usstr -> not null ; initialized | !initialized
+<<<<<<< HEAD
 
     makes a palindrome of usstr idk why this is in the 
     string.h lib tbh 
+=======
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
     */
     if(!usstr){
         ussr_report_err("ussr_strfry", STR_NULL); 
@@ -133,7 +179,11 @@ err_flag ussr_strfry(S_USSR_STRING * usstr){
     }
 
     return STR_OK;
+<<<<<<< HEAD
 }// tested ; ok 
+=======
+}//not tested ; prolly ok 
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
 
 
 err_flag ussr_strpbrk(const S_USSR_STRING * usstr, char * searched, int32_t * ret){
@@ -144,8 +194,11 @@ err_flag ussr_strpbrk(const S_USSR_STRING * usstr, char * searched, int32_t * re
 
     returns index of first occurence instead of char * 
     because of reasons. 
+<<<<<<< HEAD
 
     returns index of first occurence in searched or -1 
+=======
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
     */
     if(!usstr){
         ussr_report_err("ussr_strpbrk usstr", STR_NULL);
@@ -178,6 +231,7 @@ err_flag ussr_strpbrk(const S_USSR_STRING * usstr, char * searched, int32_t * re
 
     *ret = -1; 
     return STR_OK;
+<<<<<<< HEAD
 }// tested; ok 
 
 err_flag ussr_strchr(const S_USSR_STRING * usstr, const char searched, int32_t * ret){
@@ -187,6 +241,14 @@ err_flag ussr_strchr(const S_USSR_STRING * usstr, const char searched, int32_t *
 
     strchr equivalent ; returns the index and not the raw pointer bc of 
     reasons
+=======
+}//not tested
+
+err_flag ussr_strrchr(const S_USSR_STRING * usstr, const char searched, int32_t * ret){
+    /*
+    src -> not null && initialized
+    ret -> not null 
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
     */
     if(!usstr){
         ussr_report_err("ussr_strpbrk usstr", STR_NULL);
@@ -210,6 +272,7 @@ err_flag ussr_strchr(const S_USSR_STRING * usstr, const char searched, int32_t *
 
     *ret = -1; 
     return STR_OK;
+<<<<<<< HEAD
 }//tested;  ok 
 
 
@@ -311,3 +374,7 @@ extern err_flag ussr_strstr(const S_USSR_STRING * usstr, const char * substr, in
     *index = -1; 
     return STR_OK;
 }//not tested ; might be wrong 
+=======
+}//not tested; prolly ok 
+
+>>>>>>> 8ebd5f9e0f590dca59865e47582df5a923b362dc
