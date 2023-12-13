@@ -21,7 +21,7 @@ typedef struct s_ussr_strtab{
 
 extern err_flag init_usstrtab(S_USSTRTAB * tab, uint32_t elems);
 extern err_flag free_usstrtab(S_USSTRTAB * tab);
-extern err_flag append_usstrtab(S_USSTRTAB * tab, S_USSR_STRING * usstr);
+extern err_flag append_usstrtab(S_USSTRTAB * tab, const S_USSR_STRING * usstr);
 extern err_flag fprint_usstrtab(FILE * flux, const S_USSTRTAB * tab);
 
 #endif 

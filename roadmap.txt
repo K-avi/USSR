@@ -1,7 +1,5 @@
 functions to implement : 
 
-- powerfull split function 
-
 - more powerfull strtok()
 
 - checkout rust string library and implement 
@@ -11,58 +9,66 @@ functions to implement :
 
 - strchr variant to change all occurences of a character 
 
+- some file read wrapper 
+
 - the format part of the string function to turn stuff into string :D 
 
 - a heapsort function bc I think heaps are cool as fuck 
 
-- that one "O(n) when there aint a lot of different stuff in the string" 
-sort function 
+- maybe a pigeonhole sort or smtg
 
 
 list of string.h functions to redefine : 
 
+stpcpy -> wth
+sptncpy -> wth
+
 strcat -> done 
-
 strchr -> done 
-
 strcmp -> done 
 
-strcoll -> has to support wchar or smtg 
+strcoll -> has to support wchar or smtg I'll checkout the documentation
+strcoll_l -> // 
 
 strcpy -> kinda covered in dup ngl
 
-strcspn -> 
-
+strcspn -> done  
 strdup -> done 
 
-strfry -> 
+strerror -> no?
+strerror_l -> 
+strerror_r -> 
 
+strfry -> done 
 strlen -> done 
 
-strncat -> irrelevant
-
+strncat -> kinda irrelevant ?
 strncmp -> somewhat irrelelevant ?
 
-strncpy -> irrelelevant 
+strncpy -> idk
+strndup-> idk
+strnlen -> irrelevant 
 
-strpbrk -> 
+strpbrk -> done 
+strrchr -> done 
 
-strrchr -> 
+strsignal -> 
 
-strsep ->
+strspn -> done ; not tested 
 
-strspn -> 
+strstr-> done ; not tested 
 
-strstr -> not done 
- 
-strtok -> not done 
+strtok / strsep -> merged into a big cut function 
+strtok_r ->
 
-strxfrm -> not done 
+strxfrm -> locale stuff is weird to me 
+strxfrm_l -> 
 
-strstr -> not done 
+
+
 
 I'm not gonna mess w the memset, memcopy,... family of 
-functions . 
+functions. 
 
 
 some stdio.h functions to redefine : 
@@ -71,32 +77,25 @@ sprintf
 snprintf 
 
 build.sh : 
-
-
-
-general todo list 
+not done 
 
 docs : 
 not done 
 
 portability : 
-not verified 
+not tested I'll make a  test battery and run it on 
+Arch, Debian, Void and Gentoo 
+I don't care about windows / macOS compatibility
 
 debug: 
 more debug needed ngl
 
-
 support wide char : 
 idk maybe in a release or smtg ? 
-
-I'd like to make the library real portable at some point 
-I'm not sure how much yet I'll think abt it when I'll 
-do it lol
  
 
 making repo cleaner : 
 
-gpl message everywhere 
+gpl message everywhere once I'm done ; k&r style declarations maybe ? 
 docs 
-using fancy restrict things maybe ? 
 fancier makefile and source structures 

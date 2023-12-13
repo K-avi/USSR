@@ -28,7 +28,7 @@ err_flag ussr_str_to_c_str(const S_USSR_STRING * ussr_str, char ** c_str){
     memcpy(*c_str, ussr_str->elems, sizeof(char) * ussr_str->cur_in);
     (*c_str)[ussr_str->cur_in ] = '\0';
     return STR_OK;
-}//not tested ; possibly wrong 
+}//tested ; possibly wrong 
 
 err_flag c_str_to_ussr_str(S_USSR_STRING * ussr_str, const char * c_str){
     /*
@@ -57,4 +57,4 @@ err_flag c_str_to_ussr_str(S_USSR_STRING * ussr_str, const char * c_str){
     ussr_str->cur_in = str_length;
 
     return STR_OK;
-}//not tested
+}//tested ; seems ok 

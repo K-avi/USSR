@@ -7,7 +7,7 @@
 
 
 
-err_flag fprint_ussr_str(FILE * f, S_USSR_STRING * ussr_string){
+err_flag fprint_ussr_str(FILE * f, const S_USSR_STRING * ussr_string){
     /*
     Basic non variadic print function; 
     takes 
@@ -55,8 +55,6 @@ err_flag fprint_ussr_str(FILE * f, S_USSR_STRING * ussr_string){
     return STR_OK;
 }//messy as fuck; tested; seems ok
 
-
-
 err_flag ussr_variadic_fprint(FILE * f, uint32_t nba , ...){
     /*
     */
@@ -78,8 +76,10 @@ err_flag ussr_variadic_fprint(FILE * f, uint32_t nba , ...){
         err_flag failure = fprint_ussr_str(f,  tmp_elem);
         if(failure){
             ussr_report_err("ussr_fprint_var", failure); 
+            va_end(parameters);
             return failure;
         }
     }
+    va_end(parameters);
     return PR_OK;
-}
+}//tested ; maybe do only one print idk 

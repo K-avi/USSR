@@ -12,8 +12,9 @@ DEBUG_FLAGS := -g -fsanitize=address -fsanitize=object-size -fno-optimize-siblin
 TARGET_LIB := ../ussr_lib.so  # target lib
 DBG_LIB := ../ussr_dbg.so
 TEST := ../test
+TEST_DBG := ../test_dbg 
 
-SRCS := ussr_common.c ussr_convert.c ussr_misc.c ussr_basic.c ussr_cat.c ussr_print.c ussr_dup.c
+SRCS := ussr_common.c ussr_convert.c ussr_misc.c ussr_basic.c ussr_cat.c ussr_print.c ussr_dup.c ussr_redef.c ussr_strtab.c ussr_split.c
 OBJS = $(SRCS:.c=.o)
 
 .PHONY: all
@@ -22,13 +23,12 @@ all: ${TARGET_LIB}
 $(TARGET_LIB): $(OBJS)
 	$(CC) ${LDFLAGS} -o $@ $^
 
+$(TEST_DBG): $(SRCS) main_test.c
+	$(CC) $(CFLAGS) $(DEBUG_FLAGS) $^ -o $(TEST_DBG) 
+
 $(TEST): $(SRCS) main_test.c
-	$(CC) $(CFLAGS) $(DEBUG_FLAGS) $^ -o $(TEST) 
+	$(CC) $(CFLAGS)  $^ -o $(TEST) 
 
-$(SRCS:.c=.d):%.d:%.c
-	$(CC) $(CFLAGS) -MM $< >$@
-
-include $(SRCS:.c=.d)
 
 .PHONY: clean
 clean:

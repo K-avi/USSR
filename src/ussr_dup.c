@@ -2,8 +2,6 @@
 #include "ussr_common.h"
 #include "ussr_misc.h"
 #include <stdarg.h>
-#include <stdint.h>
-
 
 static err_flag helper_dup(S_USSR_STRING * dest , const S_USSR_STRING * src){
     /*
@@ -56,10 +54,12 @@ err_flag ussr_dup(uint32_t nba, S_USSR_STRING * dest, ...){
        S_USSR_STRING * src_extracted =  (S_USSR_STRING *) va_arg(parameters, S_USSR_STRING * );
        if(!src_extracted ){
             ussr_report_err("ussr_cat src_extracted", CAT_NULL); 
+             va_end(parameters);
             return CAT_NULL;
        }
        if(!src_extracted->elems){
             ussr_report_err("ussr_cat src_extracted->elem", CAT_NULL); 
+             va_end(parameters);
             return CAT_NULL;
        }
        total_size += src_extracted->cur_in;
@@ -84,5 +84,5 @@ err_flag ussr_dup(uint32_t nba, S_USSR_STRING * dest, ...){
         }
     }
     return STR_OK;
-}//not tested
+}//tested
 

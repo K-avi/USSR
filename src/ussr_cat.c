@@ -52,6 +52,7 @@ err_flag ussr_cat(uint32_t nba, S_USSR_STRING * dest, ...){
        S_USSR_STRING * src_extracted =  (S_USSR_STRING *) va_arg(parameters, S_USSR_STRING * );
        if(!src_extracted ){
             ussr_report_err("ussr_cat src_extracted", CAT_NULL); 
+            va_end(parameters);
             return CAT_NULL;
        }
        if(!src_extracted->elems){

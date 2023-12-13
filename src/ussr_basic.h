@@ -10,6 +10,10 @@ typedef struct s_ussr_string{
 
     uint8_t * elems; 
 }S_USSR_STRING ;
+
+//to avoid invalid read warnings :0 
+#define declare_usstr(usstr) {(usstr).cur_in=0;(usstr).elems=NULL;(usstr).max=0;}
+
 typedef S_USSR_STRING  S_USSTR; //shorter name 
 
 extern err_flag init_ussr_string(S_USSR_STRING * ussr_str , uint32_t size);
